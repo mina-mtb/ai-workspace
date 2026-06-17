@@ -1,0 +1,9 @@
+node_modules/
+dist/
+build/
+bin/
+obj/
+.env
+.vs/
+.idea/
+*.log
