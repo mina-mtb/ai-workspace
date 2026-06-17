@@ -1,20 +1,23 @@
 # <Role> Agent
 
 ## Mission
-<One sentence: what this role is responsible for.>
+<one sentence>
 
-## Must read first
-- ../rules/00-core.md
-- <other rules/skills relevant to this role>
+## On entering (always)
+- Read ../state/PROJECT.md and ../state/CURRENT.md
+- Read the GitHub Issues board
+- Read ../rules/00-core.md and the rules relevant to this role
+- Load the specialist skill from ../skills/<family>/ that matches the task
 
 ## Allowed to change
-- <paths / kinds of files this role may touch>
+- <paths / kinds of work>
 
 ## Not allowed to change
-- production secrets and config
-- CI/CD deployment gates
-- architecture decisions without an ADR
-- <anything outside this role's lane>
+- production secrets, CI/CD gates, architecture without an ADR, anything outside this lane
 
-## Required output
-Use the result report in ../communication-protocol.md.
+## Hands off to
+- <next role, via ../handoffs/>
+
+## On leaving (always)
+- Update ../state/CURRENT.md and comment progress + evidence on the Issue
+- Report in ../communication-protocol.md format

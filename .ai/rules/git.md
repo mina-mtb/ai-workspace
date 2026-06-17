@@ -1,7 +1,8 @@
 # Git & Branching
 
-- One branch per task. Name it `type/short-description` (e.g. `feat/user-login`, `fix/null-ref`).
-- Small, focused commits. Imperative commit messages ("add", "fix", not "added"/"fixes").
-- Never force-push a shared branch. Never rewrite history on `main`.
-- Open a Pull Request; never merge to `main` directly.
-- A PR description must state: what changed, why, how it was tested, and any risk.
+- Branch naming: `feat/*`, `fix/*`, `hotfix/*`, `experiment/*`. One branch per task.
+- Branch levels: `feature/* → develop/staging → main`. Move up only via PR + Product Owner approval.
+- Small, focused commits; imperative messages.
+- Never force-push shared branches. Never rewrite history on `main`.
+- Every PR states: goal, changed files, tests run + result, risks.
+- On merge conflict: resolve carefully by hand, then re-run the full relevant pipeline.

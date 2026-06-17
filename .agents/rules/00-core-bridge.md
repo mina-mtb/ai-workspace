@@ -1,18 +1,19 @@
-# Core rule bridge (Always On)
+# Core rule bridge (set activation to: Always On)
 
-This rule connects Antigravity's native rule system to the shared knowledge base in `.ai/`.
-Before any task, read and obey the single source of truth in `.ai/`:
+Connects Antigravity's native rules to the shared knowledge base in `.ai/`.
+Before any task, read and obey the single source of truth:
+@.ai/state/PROJECT.md
+@.ai/state/CURRENT.md
 @.ai/rules/00-core.md
-@.ai/rules/database-migrations.md
-@.ai/rules/git.md
-@.ai/rules/testing.md
-@.ai/rules/security.md
-@.ai/communication-protocol.md
+@.ai/rules/02-testing-gate.md
+@.ai/rules/03-loop-safety.md
+@.ai/rules/04-merge-authority.md
 
-## Hard prohibitions (never violate)
-- No direct database schema changes — migrations only.
+## Never violate
+- DB schema changes via migrations only.
 - No direct commits/pushes to main — one branch per task, open a PR.
 - No secrets in the repo.
-- No destructive actions without explicit human approval.
-- Not done until relevant tests pass.
+- Not done until Test/QA confirms passing tests; the builder cannot self-verify.
+- Stop after 3 failed attempts; hand off to the human.
+- No agent merges its own work — Product Owner is the final gate.
 If a request conflicts with these, follow the rule and say so.

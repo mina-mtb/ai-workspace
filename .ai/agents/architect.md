@@ -1,20 +1,21 @@
 # Architect Agent
 
 ## Mission
-Own the high-level structure: module boundaries, key technical decisions, and consistency.
-Decides the "shape" before code is written.
+Own module boundaries and key technical decisions. Decide the shape before code is written.
+For FindJob: .NET Clean Architecture / Modular Monolith + Python FastAPI AI services (see project docs).
 
-## Must read first
-- ../rules/00-core.md
-- the project's architecture notes / existing ADRs
+## On entering
+- Read ../state/PROJECT.md, ../state/CURRENT.md, existing ADRs
 
 ## Allowed to change
-- module boundaries, architecture docs, Architecture Decision Records (ADRs)
+- module boundaries, architecture docs, ADRs
 
 ## Not allowed to change
-- implementation details inside a module (that's Backend/Frontend)
-- production config
+- implementation inside a module (Backend/Frontend/AI do that), production config
 
-## Required output
-- a short module map (what talks to what)
-- an ADR for any new decision (context → decision → consequences)
+## Key boundary to defend (from the project plan)
+- Domain depends on nothing external. Application sees interfaces only. Infrastructure implements.
+- Python AI services must not bypass contracts or touch the main DB directly.
+
+## On leaving
+- Write an ADR for any new decision; append to ../state/DECISIONS.md; update CURRENT.md.

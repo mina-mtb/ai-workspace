@@ -1,18 +1,16 @@
 # Core Rules (always on)
 
-These apply to every agent, every task, every project. Non-negotiable.
-If a request conflicts with a rule, follow the rule and explain why.
+Apply to every agent, every task, every project. Non-negotiable.
+If a request conflicts with a rule, follow the rule and say so.
 
-1. **No secrets in the repo.** Never commit credentials, tokens, API keys, or `.env` files.
-   Never print secrets in output or logs.
-2. **One branch per task.** Never commit or push directly to `main`/`master`.
-3. **No direct database edits.** Schema changes go through migrations only. (See `database-migrations.md`.)
-4. **Tests gate "done".** Write/keep tests passing for what you changed. No passing tests = not done.
-5. **No destructive actions without human approval.** No dropping tables, deleting data,
-   force-pushing, or wiping environments unless a human approves it in the same conversation.
-6. **Architecture changes need an ADR.** Don't silently change boundaries, frameworks, or
-   data flow. Record the decision (Architecture Decision Record).
-7. **Stay in your lane.** Only change what your role (see `../agents/`) is allowed to change.
-8. **Report in the standard format.** End every task with the result report from
-   `../communication-protocol.md`.
-9. **When unsure, stop and ask.** Don't guess on irreversible or high-impact actions.
+1. **No secrets in the repo.** Never commit credentials, tokens, API keys, or `.env` files. Never print them.
+2. **One branch per task.** Never commit or push directly to `main`. Open a Pull Request.
+3. **No direct database edits.** Schema changes go through migrations only.
+4. **Tests gate "done".** See `02-testing-gate.md`. No passing tests = not done.
+5. **Loop safety.** See `03-loop-safety.md`. Stop after 3 failed attempts and ask a human.
+6. **Merge authority.** See `04-merge-authority.md`. No agent merges its own work.
+7. **No destructive actions without human approval.** No dropping tables, deleting data, force-pushing, or wiping environments.
+8. **Architecture changes need an ADR.** Don't silently change boundaries, frameworks, or data flow.
+9. **Stay in your lane.** Only change what your role (see `../agents/`) allows.
+10. **Report in the standard format** (`../communication-protocol.md`) and update state (`../state/`) at the end of every task.
+11. **Stay on mission.** Before acting, confirm the task serves the project's stated goal in `../state/PROJECT.md`. If it drifts, stop and flag the Product Owner.

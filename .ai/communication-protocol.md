@@ -1,42 +1,24 @@
 # Communication Protocol
 
-How agents report work and hand it to the next agent. Every agent uses this format.
-Agents do not pass work through long free-form chat — they pass a structured packet.
+How agents report and hand off. Work passes as a structured packet, not free-form chat.
+Agents also keep the GitHub Issue updated (the control plane) and ../state/CURRENT.md (the live snapshot).
 
-## Result report (every agent, end of every task)
-
+## Result report (end of every task)
 ```
-## Summary
-<one or two sentences: what you did and why>
-
-## Changed files
-- path/to/file — what changed
-
-## Decisions
-- <any non-obvious choice you made, and why>
-
-## Tests
-- command run:
-- result: PASS / FAIL (with key numbers)
-
-## Risks & follow-ups
-- <anything the next person should watch out for, or work left undone>
-
+## Summary        — what you did and why (1-2 sentences)
+## Changed files  — path — what changed
+## Decisions      — non-obvious choices and why
+## Tests          — command run; result PASS/FAIL with key numbers (evidence)
+## Risks/follow-ups
 ## Open questions
-- <anything you were not sure about and decided / need a human to decide>
+## State updated?  — CURRENT.md updated + Issue commented? (yes/no)
 ```
 
-## Handoff (when passing to another agent)
+## Handoff
+Same report PLUS: which role you hand to, and exactly what you need from them. See ../handoffs/.
 
-Use the same report PLUS state clearly:
-- **To which role** you are handing off (e.g. "→ Reviewer Agent").
-- **What you need from them** (e.g. "verify migration safety + security review").
-
-See `handoffs/_TEMPLATE.md` for the full handoff packet.
-
-## Escalate to a human when
-
-- The task needs an architectural decision (record an ADR).
-- The action is irreversible (deleting data, dropping tables, production deploy).
-- A hard rule in `rules/` would have to be broken to proceed.
-- You have looped 3 times on the same failure without progress. Stop and ask.
+## Escalate to the human when
+- An architectural decision is needed (record an ADR).
+- The action is irreversible (delete data, drop tables, prod deploy).
+- A hard rule would have to be broken.
+- Loop safety triggered: 3 failed attempts or repeated identical error (../rules/03-loop-safety.md).

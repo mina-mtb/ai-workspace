@@ -1,26 +1,28 @@
-# .ai — Shared Agent Knowledge Base
+# .ai — Shared Agent Knowledge Base (v2)
 
-The reusable brain for all AI agents across all projects in this workspace.
-Written once, read by every tool (via the root `AGENTS.md`).
+The reusable brain + memory for all AI agents, across all projects, read by every tool via root AGENTS.md.
 
 ## Folders
+- `rules/` — mandatory constraints (incl. testing gate, loop safety, merge authority, routing, LLMOps).
+- `agents/` — the 10 family roles (Product Owner, Orchestrator, Architect, Backend, AI Engineer, Database, Frontend, DevOps, Reviewer, Test/QA).
+- `skills/` — specialist how-to files grouped by department; read `skills/INDEX.md` first.
+- `workflows/` — step-by-step processes.
+- `handoffs/` — the standard packet passed between agents.
+- `state/` — shared memory across rotating agents (PROJECT.md, CURRENT.md, DECISIONS.md). **This is what lets a fresh agent continue where another stopped.**
+- `communication-protocol.md` — how agents report and escalate.
 
-| Folder | What it holds | Rule of thumb |
-|---|---|---|
-| `rules/` | **Mandatory constraints.** What agents must / must never do. | A rule is non-negotiable. Short. |
-| `skills/` | **How-to guides** for specific tasks. Loaded on demand. | One task per file. YAML frontmatter so tools can match it. |
-| `agents/` | **Role definitions.** Mission, what each role may change, required output. | Narrow authority per role. |
-| `workflows/` | **Step-by-step processes** for repeatable jobs. | Triggered as a checklist or `/slash` command. |
-| `handoffs/` | **Standard packet** an agent passes to the next agent. | Prevents rework and lost context. |
-| `communication-protocol.md` | How agents report results and hand off. | The shared "contract". |
-
-## Rule vs Skill (the distinction that matters)
-
-- **Rule** = *what is mandatory.* "Schema changes must go through migrations."
-- **Skill** = *how to do it.* "Here are the exact steps to create and apply a migration."
+## The model in one picture
+```
+Human sets mission ─► Product Owner (guards mission, final merge gate)
+                         │
+                    Orchestrator (routes work via rules/05-agent-routing.md)
+                         │
+   Architect · Backend · AI Engineer · Database · Frontend · DevOps  (builders, each loads its skills/)
+                         │
+                    Test/QA (independent pass/fail)  ─►  Reviewer (quality/security)  ─►  Product Owner (merge)
+```
+Memory lives in `state/` + GitHub Issues. Knowledge lives in `rules/` + `skills/`.
 
 ## Keep it lean
-
-Human-written, minimal files beat long auto-generated ones. Only write down what an agent
-can't discover by itself: exact commands, hard constraints, and your non-standard patterns.
-Prune ruthlessly. An inaccurate rule is worse than no rule.
+Human-curated, minimal, true. When an agent repeats a mistake, add the rule/skill that prevents it.
+When a skill grows large and is used constantly, promote it to its own agent.
