@@ -1,23 +1,23 @@
-# CURRENT — Live snapshot
+# CURRENT - Live snapshot
 
 > Update this at the end of EVERY session. Keep it short and true. This is the first thing the
 > next agent reads. Overwrite the stale parts; this is a snapshot, not a history (history goes to git + Issues).
 
 ## Status
-Setting up the agent system. Copied new rule files and updated product-owner agent configuration on branch `feat/flow-and-gates`.
+Setting up the agent system. Atlassian Rovo MCP was added to the local Codex config and needs a Codex restart plus OAuth sign-in before tools are available.
 
 ## Last action
-Created branch `feat/flow-and-gates`, copied rule files `07-branch-flow-and-gates.md`, `08-handoff-signal.md`, `09-layered-testing.md`, and updated `product-owner.md`. Committed changes to the branch.
+Added `mcp_servers.atlassian_rovo` to `C:\Users\mina_\.codex\config.toml` using `mcp-remote@latest` and Atlassian's current `/v1/mcp/authv2` endpoint. No tokens were stored in the repo or config.
 
 ## Where we are now
-The branch `feat/flow-and-gates` is ready for review. Unmerged branch `ignore-find-job` also exists in the repository.
+Working branch: `chore/atlassian-mcp-config-note`. GitHub MCP is available in the current Codex session. Atlassian MCP is configured locally but not loaded into this active session yet.
 
 ## Next step
-- Review the `feat/flow-and-gates` branch rules and merge to main if approved.
-- Review and merge `ignore-find-job` branch to resolve gitignore.
-- Decide the first concrete project (planned: FindJob — phase 1: CV matching + CV generation).
-- Connect GitHub MCP so agents can read/update Issues.
+- Restart Codex so the new Atlassian MCP server is loaded.
+- Complete the Atlassian OAuth flow in the browser when prompted.
+- After restart, verify Jira/Confluence tools appear and can search permitted Atlassian Cloud content.
+- Decide the first concrete project (planned: FindJob phase 1: CV matching + CV generation).
 
 ## Blockers / open questions
-- GitHub MCP not yet connected.
-
+- The Atlassian connector/plugin was not available as an installed Codex app in this session, so the setup uses the official remote MCP endpoint through `mcp-remote`.
+- A relevant `ai-workspace` GitHub Issue was not visible in the recent GitHub connector results, so no issue comment was added.
