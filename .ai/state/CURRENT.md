@@ -4,20 +4,26 @@
 > next agent reads. Overwrite the stale parts; this is a snapshot, not a history (history goes to git + Issues).
 
 ## Status
-Setting up the agent system. Atlassian Rovo MCP was added to the local Codex config and needs a Codex restart plus OAuth sign-in before tools are available.
+Product Owner (Antigravity, Claude model) has completed onboarding. All governance files read and confirmed.
+Two feature branches (`feat/role-boundaries`, `feat/product-owner-setup`) are pending review/merge on GitHub.
+Jira/Atlassian MCP is NOT connected in this session — no Jira tools available yet.
 
 ## Last action
-Added `mcp_servers.atlassian_rovo` to `C:\Users\mina_\.codex\config.toml` using `mcp-remote@latest` and Atlassian's current `/v1/mcp/authv2` endpoint. No tokens were stored in the repo or config.
+PO read onboarding doc, all rules (00–11), all state files, all agent definitions, skills INDEX,
+git-merge-flow skill, and entry files (AGENTS.md, CLAUDE.md, START-HERE.md). Confirmed understanding.
 
 ## Where we are now
-Working branch: `chore/atlassian-mcp-config-note`. GitHub MCP is available in the current Codex session. Atlassian MCP is configured locally but not loaded into this active session yet.
+Working branch: `chore/po-onboarding-confirm`. On `main`: governance system is solid (11 rules, 10 agents,
+skills index, merge flow, handoff signals, branch flow with two human gates). No application code yet.
+Pending unmerged branches on origin: `feat/product-owner-setup`, `feat/tool-model-selection`.
 
 ## Next step
-- Restart Codex so the new Atlassian MCP server is loaded.
-- Complete the Atlassian OAuth flow in the browser when prompted.
-- After restart, verify Jira/Confluence tools appear and can search permitted Atlassian Cloud content.
-- Decide the first concrete project (planned: FindJob phase 1: CV matching + CV generation).
+- Human merges `feat/role-boundaries` and `feat/product-owner-setup` into main (if approved).
+- Fix Atlassian MCP connection so PO can access Jira boards AIW and FJ.
+- Fill in ROLES.template.md for ai-workspace project (tool→role mapping).
+- Design PROJECT-LINKS.md for ai-workspace (AIW) and FindJob (FJ).
+- Do NOT start FindJob coding until human says so.
 
 ## Blockers / open questions
-- The Atlassian connector/plugin was not available as an installed Codex app in this session, so the setup uses the official remote MCP endpoint through `mcp-remote`.
-- A relevant `ai-workspace` GitHub Issue was not visible in the recent GitHub connector results, so no issue comment was added.
+- Atlassian/Jira MCP is not connected in this Antigravity session. No Jira tools available. Human needs to fix the connection.
+- `.ai/integrations/` directory does not exist yet on main.
