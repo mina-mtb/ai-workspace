@@ -19,6 +19,7 @@ Antigravity, Copilot, Windsurf…). Read this first, every session, before anyth
 - Stop after 3 failed attempts or a repeated error; hand off to the human. [rules/03]
 - No agent merges its own work; the Product Owner is the final merge gate. [rules/04]
 - No destructive actions, and no uncontrolled AI self-learning, without approval.
+- Keep commits disciplined, mirror paired systems in the same unit of work, and make priority explicit. [rules/12, rules/13, rules/14]
 
 ## 3. On leaving — always
 - Update `.ai/state/CURRENT.md` (what you did, where we are, next step, blockers).

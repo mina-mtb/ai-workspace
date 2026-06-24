@@ -14,3 +14,6 @@ If a request conflicts with a rule, follow the rule and say so.
 9. **Stay in your lane.** Only change what your role (see `../agents/`) allows.
 10. **Report in the standard format** (`../communication-protocol.md`) and update state (`../state/`) at the end of every task.
 11. **Stay on mission.** Before acting, confirm the task serves the project's stated goal in `../state/PROJECT.md`. If it drifts, stop and flag the Product Owner.
+12. **Commit discipline.** See `12-commit-discipline.md`. Checkpoint state, keep commits focused, push meaningful work, and never commit temp artifacts.
+13. **Mirroring / dual-write.** See `13-mirroring.md`. When one side of a mirrored pair changes, update the paired side and report `both sides updated? yes/no`.
+14. **Prioritization is explicit.** See `14-prioritization.md`. Foundation/blocking and safety work come first; Epic organization is separate from execution order.
