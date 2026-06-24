@@ -9,18 +9,16 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-Pass 2 COMPLETE - all 16 WSAI page-pairs are filled (2026-06-24).
-Completed Confluence Pass 2 batch 4 using native Atlassian MCP only, sequential calls,
-and `cloudId="minatahmasebib.atlassian.net"`. Filled WSAI pages 13, 14, and 15 in both
-EN and FA from the real repo files/system documentation. Each page has a top cross-link
-to its language twin and the standard repo-wins mirror note. Readback verified page
-`2162731` (`15 - Glossary & Decision Log EN`) includes the Persian cross-link, glossary,
-and decision log mirrored from `.ai/state/DECISIONS.md`.
+WSAI Confluence is fully done (2026-06-24). After Pass 2 filled all 16 EN/FA page-pairs,
+polished the two Home pages into language-specific portals using native Atlassian MCP only,
+sequential calls, and `cloudId="minatahmasebib.atlassian.net"`. Kept each existing Home
+cross-link and intro, then appended a Contents section with direct links to all 15 topic
+pages in the same language. Readback verified the EN Home contains the Contents list and
+the first link resolves to `01 - Vision & Goals (EN)` page `2359297`.
 
 Updated page IDs:
-- 13 EN `2457621`, 13 FA `2195651`
-- 14 EN `2523157`, 14 FA `2588693`
-- 15 EN `2162731`, 15 FA `2424953`
+- 00 EN Home `2162690` now links to all EN topic pages 01-15.
+- 00 FA Home `2293780` now links to all FA topic pages 01-15.
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
@@ -28,13 +26,12 @@ Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassia
 Working branch: `main`, synced with `origin/main` before Pass 2 batch 1.
 Atlassian: Confluence spaces accessible include Personal, PROGRAMVAR, SD, SD1, and WSAI.
 Jira projects AIW, FJ, and SCRUM accessible from Codex via MCP.
-WorkspaceAI Confluence skeleton exists; Pass 2 is complete and all 16 EN/FA page-pairs
-are filled with repo-mirrored content.
+WorkspaceAI Confluence skeleton exists; Pass 2 is complete; all 16 EN/FA page-pairs are
+filled with repo-mirrored content; both Home pages now act as portal pages.
 `scratch/` is ignored and should not appear as an untracked commit candidate.
 
 ## Next step
-- WSAI Confluence content pass is done. Optional polish: update `00 - Home / Overview`
-  so it links directly to all 15 topic pages.
+- WSAI Confluence is done: content pages are filled and Home pages link to all topics.
 - Build the AIW Jira backlog.
 - Set up branch structure when ready: develop / integration / staging.
 - Triage old remote branches: `feat/product-owner-setup`, `feat/tool-model-selection`.
