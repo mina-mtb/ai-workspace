@@ -9,16 +9,20 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-WSAI Confluence is fully done (2026-06-24). After Pass 2 filled all 16 EN/FA page-pairs,
-polished the two Home pages into language-specific portals using native Atlassian MCP only,
-sequential calls, and `cloudId="minatahmasebib.atlassian.net"`. Kept each existing Home
-cross-link and intro, then appended a Contents section with direct links to all 15 topic
-pages in the same language. Readback verified the EN Home contains the Contents list and
-the first link resolves to `01 - Vision & Goals (EN)` page `2359297`.
+Created the first real AIW backlog Epics (2026-06-24). Recorded the decision that AIW is
+a permanent living board in `.ai/state/DECISIONS.md` and pushed commit `0a7b627`
+(`docs: record AIW-is-a-living-project decision`). Created 6 Jira Epics in project `AIW`
+and mirrored each as a GitHub Issue in `mina-mtb/ai-workspace` with label `epic`.
+Each GitHub Issue body links to its Jira Epic, and each Jira Epic has a comment linking
+back to its GitHub Issue. `AIW-1` / GitHub #2 was marked Done/completed; the rest remain open.
 
-Updated page IDs:
-- 00 EN Home `2162690` now links to all EN topic pages 01-15.
-- 00 FA Home `2293780` now links to all FA topic pages 01-15.
+Created Epic mirrors:
+- `AIW-1` / GitHub #2 - Confluence Documentation Foundation - Done/completed.
+- `AIW-2` / GitHub #3 - Git & Branch Infrastructure - To Do/open.
+- `AIW-3` / GitHub #4 - Integration & Connection Knowledge - To Do/open.
+- `AIW-4` / GitHub #5 - Mirroring & Sync Governance - To Do/open.
+- `AIW-5` / GitHub #6 - Safety & Hygiene Rules - To Do/open.
+- `AIW-6` / GitHub #7 - Continuous Improvement (Ongoing - never closed) - To Do/open permanently.
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
@@ -28,11 +32,12 @@ Atlassian: Confluence spaces accessible include Personal, PROGRAMVAR, SD, SD1, a
 Jira projects AIW, FJ, and SCRUM accessible from Codex via MCP.
 WorkspaceAI Confluence skeleton exists; Pass 2 is complete; all 16 EN/FA page-pairs are
 filled with repo-mirrored content; both Home pages now act as portal pages.
+AIW Jira backlog now has 6 top-level Epics mirrored to GitHub Issues.
 `scratch/` is ignored and should not appear as an untracked commit candidate.
 
 ## Next step
 - WSAI Confluence is done: content pages are filled and Home pages link to all topics.
-- Build the AIW Jira backlog.
+- Add Stories under each AIW Epic, mirrored Jira<->GitHub in the same pattern.
 - Set up branch structure when ready: develop / integration / staging.
 - Triage old remote branches: `feat/product-owner-setup`, `feat/tool-model-selection`.
 - Do NOT start FindJob coding until human says so.
