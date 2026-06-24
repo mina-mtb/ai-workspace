@@ -9,22 +9,18 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-Completed git housekeeping and Confluence Pass 2 batch 3 (2026-06-24).
-Added `scratch/` to `.gitignore`, committed and pushed checkpoint `01be7b9`
-(`chore: ignore scratch/ and checkpoint CURRENT state`). From now on, commit pending
-`CURRENT.md`/state changes before starting new work so state history stays in git.
-
-Filled WSAI pages 09, 10, 11, and 12 in both EN and FA from the real repo files using
-native Atlassian MCP only, sequential calls, and `cloudId="minatahmasebib.atlassian.net"`.
-Each page has a top cross-link to its language twin and the standard repo-wins mirror note.
-Readback verified page `2359377` (`12 - LLMOps EN`) includes the Persian cross-link and
-the LLMOps rules table.
+Pass 2 COMPLETE - all 16 WSAI page-pairs are filled (2026-06-24).
+Completed Confluence Pass 2 batch 4 using native Atlassian MCP only, sequential calls,
+and `cloudId="minatahmasebib.atlassian.net"`. Filled WSAI pages 13, 14, and 15 in both
+EN and FA from the real repo files/system documentation. Each page has a top cross-link
+to its language twin and the standard repo-wins mirror note. Readback verified page
+`2162731` (`15 - Glossary & Decision Log EN`) includes the Persian cross-link, glossary,
+and decision log mirrored from `.ai/state/DECISIONS.md`.
 
 Updated page IDs:
-- 09 EN `2588673`, 09 FA `2162711`
-- 10 EN `2490389`, 10 FA `2359357`
-- 11 EN `2293800`, 11 FA `2228226`
-- 12 EN `2359377`, 12 FA `2359397`
+- 13 EN `2457621`, 13 FA `2195651`
+- 14 EN `2523157`, 14 FA `2588693`
+- 15 EN `2162731`, 15 FA `2424953`
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
@@ -32,13 +28,16 @@ Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassia
 Working branch: `main`, synced with `origin/main` before Pass 2 batch 1.
 Atlassian: Confluence spaces accessible include Personal, PROGRAMVAR, SD, SD1, and WSAI.
 Jira projects AIW, FJ, and SCRUM accessible from Codex via MCP.
-WorkspaceAI Confluence skeleton exists; Pass 2 batches 1, 2, and 3 are filled.
+WorkspaceAI Confluence skeleton exists; Pass 2 is complete and all 16 EN/FA page-pairs
+are filled with repo-mirrored content.
 `scratch/` is ignored and should not appear as an untracked commit candidate.
 
 ## Next step
-- Human checks page `12 - LLMOps (EN)` in browser and confirms it matches `.ai/rules/llmops.md`
-  and `.ai/skills/ai-engineer/llmops.md`.
-- Continue Confluence Pass 2 next: batch 4 = pages 13, 14, and 15 in EN+FA.
+- WSAI Confluence content pass is done. Optional polish: update `00 - Home / Overview`
+  so it links directly to all 15 topic pages.
+- Build the AIW Jira backlog.
+- Set up branch structure when ready: develop / integration / staging.
+- Triage old remote branches: `feat/product-owner-setup`, `feat/tool-model-selection`.
 - Do NOT start FindJob coding until human says so.
 
 ## Blockers / open questions
