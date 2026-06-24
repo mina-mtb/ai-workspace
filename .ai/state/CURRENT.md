@@ -9,18 +9,22 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-Completed Confluence Pass 2 batch 2 (2026-06-24) using native Atlassian MCP only,
-sequential calls, and `cloudId="minatahmasebib.atlassian.net"`. Filled WSAI pages
-04, 06, 07, and 08 in both EN and FA from the real repo files, each with a top
-cross-link to its language twin and the standard repo-wins mirror note. Readback
-verified page `2424873` (`04 - Agents EN`) includes the Persian cross-link and all
-10 agent roles from `.ai/agents/`.
+Completed git housekeeping and Confluence Pass 2 batch 3 (2026-06-24).
+Added `scratch/` to `.gitignore`, committed and pushed checkpoint `01be7b9`
+(`chore: ignore scratch/ and checkpoint CURRENT state`). From now on, commit pending
+`CURRENT.md`/state changes before starting new work so state history stays in git.
+
+Filled WSAI pages 09, 10, 11, and 12 in both EN and FA from the real repo files using
+native Atlassian MCP only, sequential calls, and `cloudId="minatahmasebib.atlassian.net"`.
+Each page has a top cross-link to its language twin and the standard repo-wins mirror note.
+Readback verified page `2359377` (`12 - LLMOps EN`) includes the Persian cross-link and
+the LLMOps rules table.
 
 Updated page IDs:
-- 04 EN `2424873`, 04 FA `2424893`
-- 06 EN `2457601`, 06 FA `2195631`
-- 07 EN `2424933`, 07 FA `2490369`
-- 08 EN `2523137`, 08 FA `2555905`
+- 09 EN `2588673`, 09 FA `2162711`
+- 10 EN `2490389`, 10 FA `2359357`
+- 11 EN `2293800`, 11 FA `2228226`
+- 12 EN `2359377`, 12 FA `2359397`
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
@@ -28,13 +32,13 @@ Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassia
 Working branch: `main`, synced with `origin/main` before Pass 2 batch 1.
 Atlassian: Confluence spaces accessible include Personal, PROGRAMVAR, SD, SD1, and WSAI.
 Jira projects AIW, FJ, and SCRUM accessible from Codex via MCP.
-WorkspaceAI Confluence skeleton exists; Pass 2 batches 1 and 2 are filled.
+WorkspaceAI Confluence skeleton exists; Pass 2 batches 1, 2, and 3 are filled.
+`scratch/` is ignored and should not appear as an untracked commit candidate.
 
 ## Next step
-- Human checks page `04 - Agents (EN)` in browser and confirms all 10 agents match `.ai/agents/`.
-- Continue Confluence Pass 2 next: batch 3 = pages 09, 10, 11, and 12 in EN+FA.
-- Add `scratch/` to `.gitignore` in a separate repo-file task so temporary audit artifacts
-  do not keep appearing in Source Control.
+- Human checks page `12 - LLMOps (EN)` in browser and confirms it matches `.ai/rules/llmops.md`
+  and `.ai/skills/ai-engineer/llmops.md`.
+- Continue Confluence Pass 2 next: batch 4 = pages 13, 14, and 15 in EN+FA.
 - Do NOT start FindJob coding until human says so.
 
 ## Blockers / open questions
