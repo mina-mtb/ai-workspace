@@ -9,16 +9,19 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-Created the first AIW Stories under Epic `AIW-2` (Git & Branch Infrastructure) on 2026-06-25.
-Each Story has a bilingual EN/FA description, is parent-linked to `AIW-2`, and is mirrored
-to a GitHub Issue with label `story`. Each GitHub Issue body links to the Jira Story and
-parent Epic; each Jira Story has a comment linking back to the GitHub Issue. Readback
-verified parent=`AIW-2`, bilingual descriptions, and Jira-side GitHub mirror comments.
+Created high-level AIW Stories under Epic `AIW-3` (Integration & Connection Knowledge)
+on 2026-06-25. First verified one AIW-2 Story (`AIW-7`) still had the expected pattern:
+bilingual EN/FA description, parent=`AIW-2`, and Jira-side GitHub mirror comment. Then
+created 3 Stories under `AIW-3`; each has a bilingual EN/FA description, is parent-linked
+to `AIW-3`, and is mirrored to a GitHub Issue with label `story`. Each GitHub Issue body
+links to the Jira Story and parent Epic; each Jira Story has a comment linking back to
+the GitHub Issue. Readback verified parent=`AIW-3`, bilingual descriptions, and Jira-side
+GitHub mirror comments.
 
 Created Story mirrors:
-- `AIW-7` / GitHub #8 - Create branch structure (develop / integration / staging).
-- `AIW-8` / GitHub #9 - Triage stale remote branches.
-- `AIW-9` / GitHub #10 - Set up branch protection on main.
+- `AIW-10` / GitHub #11 - Write Atlassian MCP integration doc.
+- `AIW-11` / GitHub #12 - Capture Atlassian technical lessons as a skill.
+- `AIW-12` / GitHub #13 - Fill ROLES mapping for ai-workspace.
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
@@ -28,13 +31,13 @@ Atlassian: Confluence spaces accessible include Personal, PROGRAMVAR, SD, SD1, a
 Jira projects AIW, FJ, and SCRUM accessible from Codex via MCP.
 WorkspaceAI Confluence skeleton exists; Pass 2 is complete; all 16 EN/FA page-pairs are
 filled with repo-mirrored content; both Home pages now act as portal pages.
-AIW Jira backlog now has 6 top-level Epics mirrored to GitHub Issues, plus the 3 high-level
-Stories under Epic `AIW-2` mirrored to GitHub Issues.
+AIW Jira backlog now has 6 top-level Epics mirrored to GitHub Issues, plus 6 high-level
+Stories mirrored to GitHub Issues: 3 under `AIW-2` and 3 under `AIW-3`.
 `scratch/` is ignored and should not appear as an untracked commit candidate.
 
 ## Next step
 - WSAI Confluence is done: content pages are filled and Home pages link to all topics.
-- Continue adding high-level Stories, next = Epic `AIW-3` (Integration & Connection Knowledge),
+- Continue adding high-level Stories, next = Epic `AIW-5` (Safety & Hygiene Rules),
   mirrored Jira<->GitHub in the same bilingual pattern.
 - Set up branch structure when ready: develop / integration / staging.
 - Triage old remote branches: `feat/product-owner-setup`, `feat/tool-model-selection`.
