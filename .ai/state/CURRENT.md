@@ -9,19 +9,16 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-Created high-level AIW Stories under Epic `AIW-3` (Integration & Connection Knowledge)
-on 2026-06-25. First verified one AIW-2 Story (`AIW-7`) still had the expected pattern:
-bilingual EN/FA description, parent=`AIW-2`, and Jira-side GitHub mirror comment. Then
-created 3 Stories under `AIW-3`; each has a bilingual EN/FA description, is parent-linked
-to `AIW-3`, and is mirrored to a GitHub Issue with label `story`. Each GitHub Issue body
-links to the Jira Story and parent Epic; each Jira Story has a comment linking back to
-the GitHub Issue. Readback verified parent=`AIW-3`, bilingual descriptions, and Jira-side
-GitHub mirror comments.
+Created the WorkspaceAI Idea Inbox (2026-06-25). Recorded the Idea Inbox decision in
+`.ai/state/DECISIONS.md` and pushed commit `138ab80` (`docs: add Idea Inbox concept`).
+Created WSAI Confluence page `16 - Idea Inbox / دفتر ایده‌ها` under homepage `2195585`
+with page ID `3473409`. Seeded the first raw idea: bilingual auto-translation for manual
+Jira/Confluence entries. Added the Idea Inbox link as item 16 at the bottom of both Home
+page Contents sections (`00 EN` and `00 FA`). Readback verified the new page body and
+the Home EN link to page `3473409`.
 
-Created Story mirrors:
-- `AIW-10` / GitHub #11 - Write Atlassian MCP integration doc.
-- `AIW-11` / GitHub #12 - Capture Atlassian technical lessons as a skill.
-- `AIW-12` / GitHub #13 - Fill ROLES mapping for ai-workspace.
+Created page:
+- `16 - Idea Inbox / دفتر ایده‌ها` / Confluence page `3473409`.
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
@@ -33,12 +30,14 @@ WorkspaceAI Confluence skeleton exists; Pass 2 is complete; all 16 EN/FA page-pa
 filled with repo-mirrored content; both Home pages now act as portal pages.
 AIW Jira backlog now has 6 top-level Epics mirrored to GitHub Issues, plus 6 high-level
 Stories mirrored to GitHub Issues: 3 under `AIW-2` and 3 under `AIW-3`.
+WSAI also has an Idea Inbox page for raw ideas before promotion into the real backlog.
 `scratch/` is ignored and should not appear as an untracked commit candidate.
 
 ## Next step
 - WSAI Confluence is done: content pages are filled and Home pages link to all topics.
 - Continue adding high-level Stories, next = Epic `AIW-5` (Safety & Hygiene Rules),
   mirrored Jira<->GitHub in the same bilingual pattern.
+- Later: promote the raw bilingual auto-translation idea into an Epic `AIW-4` Story when ready.
 - Set up branch structure when ready: develop / integration / staging.
 - Triage old remote branches: `feat/product-owner-setup`, `feat/tool-model-selection`.
 - Do NOT start FindJob coding until human says so.
