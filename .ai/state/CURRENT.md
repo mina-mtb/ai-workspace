@@ -9,16 +9,27 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-Created the WorkspaceAI Idea Inbox (2026-06-25). Recorded the Idea Inbox decision in
-`.ai/state/DECISIONS.md` and pushed commit `138ab80` (`docs: add Idea Inbox concept`).
-Created WSAI Confluence page `16 - Idea Inbox / دفتر ایده‌ها` under homepage `2195585`
-with page ID `3473409`. Seeded the first raw idea: bilingual auto-translation for manual
-Jira/Confluence entries. Added the Idea Inbox link as item 16 at the bottom of both Home
-page Contents sections (`00 EN` and `00 FA`). Readback verified the new page body and
-the Home EN link to page `3473409`.
+Created 5 governance Stories for the next rules work (2026-06-25). This was paper trail
+only: no rule files were written yet. Each Story has a bilingual EN/FA description, is
+linked to its parent Epic, and is mirrored to a GitHub Issue with label `story`; each
+GitHub Issue links to the Jira Story and parent Epic, and each Jira Story has a comment
+linking back to GitHub.
 
-Created page:
-- `16 - Idea Inbox / دفتر ایده‌ها` / Confluence page `3473409`.
+Foundational Stories, created first and set to Priority=Highest:
+- `AIW-13` / GitHub #14 - Write commit-discipline rule - parent `AIW-5`.
+- `AIW-14` / GitHub #15 - Write prioritization rule - parent `AIW-5`.
+- `AIW-15` / GitHub #16 - Write mirroring / dual-write rule - parent `AIW-4`.
+
+Future Stories, set to Priority=Low:
+- `AIW-16` / GitHub #17 - Build automated Jira<->GitHub sync - parent `AIW-4`.
+- `AIW-17` / GitHub #18 - Build bilingual auto-translation for manual entries - parent
+  `AIW-4`; promoted from Idea Inbox page `3473409`.
+
+Readback verified the Jira parent links, priorities, bilingual descriptions, and Jira-side
+GitHub mirror comments. The Idea Inbox page was updated: the bilingual auto-translation
+idea moved from Raw to Promoted and now points to `AIW-17` / GitHub #18. Direct Jira
+backlog-rank mutation was not exposed in the current MCP tool surface, so the three
+foundational items were created first and marked Highest; no board-rank API change was made.
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
@@ -28,16 +39,18 @@ Atlassian: Confluence spaces accessible include Personal, PROGRAMVAR, SD, SD1, a
 Jira projects AIW, FJ, and SCRUM accessible from Codex via MCP.
 WorkspaceAI Confluence skeleton exists; Pass 2 is complete; all 16 EN/FA page-pairs are
 filled with repo-mirrored content; both Home pages now act as portal pages.
-AIW Jira backlog now has 6 top-level Epics mirrored to GitHub Issues, plus 6 high-level
-Stories mirrored to GitHub Issues: 3 under `AIW-2` and 3 under `AIW-3`.
+AIW Jira backlog now has 6 top-level Epics mirrored to GitHub Issues, plus 11 high-level
+Stories mirrored to GitHub Issues: 3 under `AIW-2`, 3 under `AIW-3`, 2 under `AIW-5`,
+and 3 under `AIW-4`.
 WSAI also has an Idea Inbox page for raw ideas before promotion into the real backlog.
 `scratch/` is ignored and should not appear as an untracked commit candidate.
 
 ## Next step
 - WSAI Confluence is done: content pages are filled and Home pages link to all topics.
-- Continue adding high-level Stories, next = Epic `AIW-5` (Safety & Hygiene Rules),
-  mirrored Jira<->GitHub in the same bilingual pattern.
-- Later: promote the raw bilingual auto-translation idea into an Epic `AIW-4` Story when ready.
+- Write the three rule files next: `.ai/rules/12-commit-discipline.md`,
+  `.ai/rules/13-mirroring.md`, and `.ai/rules/14-prioritization.md`.
+- Reference the new rules from `.ai/rules/00-core.md` and `AGENTS.md`.
+- After rule files exist, mirror their summaries into WSAI Confluence per the mirroring rule.
 - Set up branch structure when ready: develop / integration / staging.
 - Triage old remote branches: `feat/product-owner-setup`, `feat/tool-model-selection`.
 - Do NOT start FindJob coding until human says so.
