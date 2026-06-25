@@ -9,20 +9,19 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-Completed AIW-7 branch structure setup (2026-06-25). Created and pushed long-lived
-branches:
-- `develop` from `main`
-- `staging` from `develop`
-- `integration` from `develop`
+Started AIW-9 branch protection setup (2026-06-25), but protection could not be configured
+from the current Codex environment. `gh` is not installed/in PATH, and the available GitHub
+connector exposes repo/issue/PR/branch tools but no branch protection or ruleset mutation
+tool. Raw token/API fallback was not used.
 
-Confirmed all three exist locally and on origin. `.ai/rules/07-branch-flow-and-gates.md`
-already showed the concrete branch flow clearly, so no repo doc PR was needed. Mirrored the
-active branch model summary to WSAI Confluence page `11 - DevOps & Environments (EN)`
-(`2293800`) and FA twin (`2228226`). Jira Story `AIW-7` was moved to Done; GitHub Issue
-#8 received a completion comment and was closed as completed. Readback verified `AIW-7`
-is Done and the Confluence EN page includes the Branch model section.
+Moved Jira Story `AIW-9` to In Progress and added matching starting/manual-instruction
+comments to GitHub Issue #10. Added a pending-manual branch protection note to WSAI
+Confluence page `11 - DevOps & Environments (EN)` (`2293800`) and FA twin (`2228226`).
+Readback verified `AIW-9` remains In Progress and the Confluence EN page includes the
+Branch protection section.
 
-Both sides updated? yes: Git branches, WSAI Confluence, Jira, and GitHub Issue #8 are aligned.
+both sides updated? pending manual step. Human must configure GitHub branch protection for
+`main` in the UI, then AIW-9 can be closed.
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
@@ -37,15 +36,22 @@ AIW Jira backlog now has 6 top-level Epics mirrored to GitHub Issues, plus 11 hi
 Stories mirrored to GitHub Issues: 3 under `AIW-2`, 3 under `AIW-3`, 2 under `AIW-5`,
 and 3 under `AIW-4`.
 Epic `AIW-2` is partially done: `AIW-7` branch structure is Done; `AIW-8` stale branch
-triage and `AIW-9` branch protection remain open.
+triage remains open; `AIW-9` branch protection is In Progress pending manual GitHub UI setup.
 Epic `AIW-5` is partially done: governance rules 12/14 are Done; other safety/hygiene work
 may be added later via incidents or continuous improvement.
 WSAI also has an Idea Inbox page for raw ideas before promotion into the real backlog.
 `scratch/` is ignored and should not appear as an untracked commit candidate.
 
 ## Next step
-- Remaining open foundational work: `AIW-2` Stories `AIW-8` (stale branch triage) and
-  `AIW-9` (branch protection). Suggested next execution: `AIW-9`.
+- Human applies branch protection manually for `main` in GitHub UI: Settings -> Branches
+  -> Add branch protection rule/ruleset -> pattern `main` -> require PR before merge,
+  require branch up to date if shown, do not require multiple reviewers, do not require
+  status checks yet, disallow force pushes, disallow deletions.
+- After manual protection is applied, close out `AIW-9`: verify protection, move Jira to
+  Done, close GitHub Issue #10, and update Confluence from pending to protected.
+- Decide the state-update flow after `main` protection, because direct `CURRENT.md` pushes
+  should move to PR-based checkpointing unless a deliberate exception is chosen.
+- Remaining open foundational work after AIW-9: `AIW-8` stale branch triage.
 - Remaining integration knowledge work: `AIW-3` Stories (Atlassian MCP doc, Atlassian
   lessons skill, ROLES mapping).
 - Future/non-blocking AIW-4 work remains open: automated Jira<->GitHub sync and bilingual
