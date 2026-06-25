@@ -9,25 +9,26 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-Started AIW-9 branch protection setup (2026-06-25), but protection could not be configured
-from the current Codex environment. `gh` is not installed/in PATH, and the available GitHub
-connector exposes repo/issue/PR/branch tools but no branch protection or ruleset mutation
-tool. Raw token/API fallback was not used.
+Closed out AIW-9 branch protection setup (2026-06-25). Human enabled GitHub ruleset
+`protect-main`; read-only GitHub branch API verified `main` returns `protected: true`.
+Jira Story `AIW-9` was moved to Done, and GitHub Issue #10 received a completion comment
+and was closed as completed.
 
-Moved Jira Story `AIW-9` to In Progress and added matching starting/manual-instruction
-comments to GitHub Issue #10. Added a pending-manual branch protection note to WSAI
-Confluence page `11 - DevOps & Environments (EN)` (`2293800`) and FA twin (`2228226`).
-Readback verified `AIW-9` remains In Progress and the Confluence EN page includes the
-Branch protection section.
+Updated WSAI Confluence page `11 - DevOps & Environments (EN)` (`2293800`) and FA twin
+(`2228226`) from pending to active branch protection. Also mirrored the protected-main
+commit discipline clarification to Rules pages `2359337` and `2424913`.
 
-both sides updated? pending manual step. Human must configure GitHub branch protection for
-`main` in the UI, then AIW-9 can be closed.
+Opened PR #20 to update repo-side Rule 12 and decisions:
+https://github.com/mina-mtb/ai-workspace/pull/20
+
+both sides updated? yes for AIW-9 branch protection. Repo-side clarification waits for
+human merge of PR #20 before becoming canonical on `main`.
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
 ## Where we are now
-Working branch: `main`, synced with `origin/main`. Long-lived branches now exist on origin:
-`develop`, `integration`, and `staging`.
+Working branch: `feat/commit-rule-clarify`, pushed to origin with PR #20 open against `main`.
+Long-lived branches exist on origin: `develop`, `integration`, and `staging`.
 Atlassian: Confluence spaces accessible include Personal, PROGRAMVAR, SD, SD1, and WSAI.
 Jira projects AIW, FJ, and SCRUM accessible from Codex via MCP.
 WorkspaceAI Confluence skeleton exists; Pass 2 is complete; all 16 EN/FA page-pairs are
@@ -35,23 +36,18 @@ filled with repo-mirrored content; both Home pages now act as portal pages.
 AIW Jira backlog now has 6 top-level Epics mirrored to GitHub Issues, plus 11 high-level
 Stories mirrored to GitHub Issues: 3 under `AIW-2`, 3 under `AIW-3`, 2 under `AIW-5`,
 and 3 under `AIW-4`.
-Epic `AIW-2` is partially done: `AIW-7` branch structure is Done; `AIW-8` stale branch
-triage remains open; `AIW-9` branch protection is In Progress pending manual GitHub UI setup.
+Epic `AIW-2` is partially done: `AIW-7` branch structure is Done, `AIW-9` branch protection
+is Done, and `AIW-8` stale branch triage remains open.
 Epic `AIW-5` is partially done: governance rules 12/14 are Done; other safety/hygiene work
 may be added later via incidents or continuous improvement.
 WSAI also has an Idea Inbox page for raw ideas before promotion into the real backlog.
 `scratch/` is ignored and should not appear as an untracked commit candidate.
 
 ## Next step
-- Human applies branch protection manually for `main` in GitHub UI: Settings -> Branches
-  -> Add branch protection rule/ruleset -> pattern `main` -> require PR before merge,
-  require branch up to date if shown, do not require multiple reviewers, do not require
-  status checks yet, disallow force pushes, disallow deletions.
-- After manual protection is applied, close out `AIW-9`: verify protection, move Jira to
-  Done, close GitHub Issue #10, and update Confluence from pending to protected.
-- Decide the state-update flow after `main` protection, because direct `CURRENT.md` pushes
-  should move to PR-based checkpointing unless a deliberate exception is chosen.
-- Remaining open foundational work after AIW-9: `AIW-8` stale branch triage.
+- Human/Product Owner reviews PR #20. Do not merge it automatically.
+- After PR #20 is merged, sync local `main`, delete `feat/commit-rule-clarify`, and note
+  that protected-main checkpoint flow is canonical.
+- Remaining open foundational work: `AIW-8` stale branch triage.
 - Remaining integration knowledge work: `AIW-3` Stories (Atlassian MCP doc, Atlassian
   lessons skill, ROLES mapping).
 - Future/non-blocking AIW-4 work remains open: automated Jira<->GitHub sync and bilingual
