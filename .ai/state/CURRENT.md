@@ -9,51 +9,32 @@ PROJECT-LINKS is merged to `main` and available at `.ai/integrations/PROJECT-LIN
 **Atlassian MCP is CONNECTED and WORKING in Codex** - Jira and Confluence read/write page tools are verified functional.
 
 ## Last action
-Closed out AIW-9 branch protection setup (2026-06-25). Human enabled GitHub ruleset
-`protect-main`; read-only GitHub branch API verified `main` returns `protected: true`.
-Jira Story `AIW-9` was moved to Done, and GitHub Issue #10 received a completion comment
-and was closed as completed.
+Synced local `main` after PR #20 was merged (2026-06-25). PR #20 is merged as
+`3c9bda8`; local `feat/commit-rule-clarify` was deleted and remote branch was pruned.
+Protected-main checkpoint flow is now canonical in `.ai/rules/12-commit-discipline.md`
+and `.ai/state/DECISIONS.md`.
 
-Updated WSAI Confluence page `11 - DevOps & Environments (EN)` (`2293800`) and FA twin
-(`2228226`) from pending to active branch protection. Also mirrored the protected-main
-commit discipline clarification to Rules pages `2359337` and `2424913`.
+Attempted AIW-12 close-out, but `.ai/state/ROLES.template.md` on `main` is still the old
+placeholder template, not the filled tool-to-role mapping. No remote `feat/roles-mapping`
+branch was found, and git history for the file only shows the old template commit
+`f95eca4`. AIW-12 was NOT moved to Done and was NOT mirrored to Confluence. Added blocker
+comments to Jira `AIW-12` and GitHub Issue #13.
 
-Opened PR #20 to update repo-side Rule 12 and decisions:
-https://github.com/mina-mtb/ai-workspace/pull/20
-
-both sides updated? yes for AIW-9 branch protection. Repo-side clarification waits for
-human merge of PR #20 before becoming canonical on `main`.
+both sides updated? no for AIW-12 — blocked because the repo source is missing/wrong.
 
 Cloud ID: `122f52d1-9fca-43d7-885e-8d7b387c257d`. Site: `minatahmasebib.atlassian.net`.
 
-## Where we are now
-Working branch: `feat/commit-rule-clarify`, pushed to origin with PR #20 open against `main`.
-Long-lived branches exist on origin: `develop`, `integration`, and `staging`.
-Atlassian: Confluence spaces accessible include Personal, PROGRAMVAR, SD, SD1, and WSAI.
-Jira projects AIW, FJ, and SCRUM accessible from Codex via MCP.
-WorkspaceAI Confluence skeleton exists; Pass 2 is complete; all 16 EN/FA page-pairs are
-filled with repo-mirrored content; both Home pages now act as portal pages.
-AIW Jira backlog now has 6 top-level Epics mirrored to GitHub Issues, plus 11 high-level
-Stories mirrored to GitHub Issues: 3 under `AIW-2`, 3 under `AIW-3`, 2 under `AIW-5`,
-and 3 under `AIW-4`.
-Epic `AIW-2` is partially done: `AIW-7` branch structure is Done, `AIW-9` branch protection
-is Done, and `AIW-8` stale branch triage remains open.
-Epic `AIW-5` is partially done: governance rules 12/14 are Done; other safety/hygiene work
-may be added later via incidents or continuous improvement.
-WSAI also has an Idea Inbox page for raw ideas before promotion into the real backlog.
-`scratch/` is ignored and should not appear as an untracked commit candidate.
+## Where we are now (2026-07-01)
+- بانک MCP (`.ai/11-mcp-hub`) با ساختار Gateway، Registry، Templates و قانون تفکیک Config/Secrets در مخزن مجزا (`ai-workspace-config`) ایجاد شد.
+- پروتکل Jira با معماری Fallback پیاده‌سازی شده است (Rovo MCP به عنوان Primary و FastMCP Python به عنوان Fallback).
+- تست زنده Fallback به دلیل عدم وجود توکن موقتاً معلق (Pending) است اما ساختار کد به شکل Dry Run تایید گردید.
+- گردش کار ساخت سرورهای جدید MCP به صورت کنترل‌شده (با اجبار تایید انسان در مراحل حساس) تنظیم گردید.
+- Working branch فعلی: `feature/mcp-hub-group-a`
 
 ## Next step
-- Human/Product Owner reviews PR #20. Do not merge it automatically.
-- After PR #20 is merged, sync local `main`, delete `feat/commit-rule-clarify`, and note
-  that protected-main checkpoint flow is canonical.
-- Remaining open foundational work: `AIW-8` stale branch triage.
-- Remaining integration knowledge work: `AIW-3` Stories (Atlassian MCP doc, Atlassian
-  lessons skill, ROLES mapping).
-- Future/non-blocking AIW-4 work remains open: automated Jira<->GitHub sync and bilingual
-  auto-translation.
-- Decide how much more WorkspaceAI infrastructure to finish before starting FindJob.
-- Do NOT start FindJob coding until human says so.
+- تامین Atlassian API Token، ثبت در `.env` محلی و اجرای تست زنده روی سرور Fallback جیرا.
+- بازبینی و تایید Merge برنچ `feature/mcp-hub-group-a` توسط انسان.
+- رفع مشکل مسدود بودن `AIW-12` مربوط به `ROLES.template.md`.
 
 ## Blockers / open questions
 - Direct REST API Basic-auth retest needs the actual Atlassian email/API-token pair or
