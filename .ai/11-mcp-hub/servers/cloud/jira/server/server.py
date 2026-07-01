@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+from requests.exceptions import RequestException
 from typing import Dict, Any, Optional, List
 from mcp.server.fastmcp import FastMCP
 
@@ -27,6 +28,15 @@ def get_jira_client():
     url = url.rstrip('/')
     return session, url
 
+def format_error(e: Exception) -> str:
+    """Helper to format exception messages, including HTTP response body if available."""
+    if isinstance(e, RequestException) and e.response is not None:
+        try:
+            return f"HTTP Error: {str(e)} - Details: {e.response.text}"
+        except Exception:
+            pass
+    return f"Error: {str(e)}"
+
 # ----------------------------------------------------------------------------
 # READ OPERATIONS (auto_fallback: true)
 # ----------------------------------------------------------------------------
@@ -40,18 +50,22 @@ def get_issue(key: str) -> str:
         response.raise_for_status()
         return json.dumps(response.json(), indent=2)
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 @mcp.tool()
 def search_issues(jql: str) -> str:
     """Search Jira issues using JQL."""
     try:
         session, base_url = get_jira_client()
-        response = session.get(f"{base_url}/rest/api/3/search", params={"jql": jql})
+        payload = {
+            "jql": jql,
+            "maxResults": 50
+        }
+        response = session.post(f"{base_url}/rest/api/3/search/jql", json=payload)
         response.raise_for_status()
         return json.dumps(response.json(), indent=2)
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 @mcp.tool()
 def list_projects() -> str:
@@ -62,7 +76,7 @@ def list_projects() -> str:
         response.raise_for_status()
         return json.dumps(response.json(), indent=2)
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 @mcp.tool()
 def get_issue_types(project: str) -> str:
@@ -74,7 +88,7 @@ def get_issue_types(project: str) -> str:
         project_data = response.json()
         return json.dumps(project_data.get("issueTypes", []), indent=2)
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 @mcp.tool()
 def get_field_metadata(project: str, issue_type: str) -> str:
@@ -92,7 +106,7 @@ def get_field_metadata(project: str, issue_type: str) -> str:
         response.raise_for_status()
         return json.dumps(response.json(), indent=2)
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 @mcp.tool()
 def lookup_user(query: str) -> str:
@@ -103,7 +117,7 @@ def lookup_user(query: str) -> str:
         response.raise_for_status()
         return json.dumps(response.json(), indent=2)
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 # ----------------------------------------------------------------------------
 # WRITE OPERATIONS (Require idempotency_key + human_confirmation via Gateway)
@@ -133,7 +147,7 @@ def create_issue(project: str, issue_type: str, fields: str, idempotency_key: st
         response.raise_for_status()
         return json.dumps(response.json(), indent=2)
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 @mcp.tool()
 def edit_issue(key: str, fields: str, idempotency_key: str) -> str:
@@ -146,7 +160,7 @@ def edit_issue(key: str, fields: str, idempotency_key: str) -> str:
         response.raise_for_status()
         return f"Issue {key} updated successfully."
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 @mcp.tool()
 def transition_issue(key: str, transition_id: str, idempotency_key: str) -> str:
@@ -159,7 +173,7 @@ def transition_issue(key: str, transition_id: str, idempotency_key: str) -> str:
         response.raise_for_status()
         return f"Issue {key} transitioned successfully."
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 @mcp.tool()
 def add_comment(key: str, body: str, idempotency_key: str) -> str:
@@ -190,7 +204,7 @@ def add_comment(key: str, body: str, idempotency_key: str) -> str:
         response.raise_for_status()
         return f"Comment added to {key} successfully."
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 @mcp.tool()
 def add_worklog(key: str, time_spent: str, idempotency_key: str) -> str:
@@ -203,7 +217,7 @@ def add_worklog(key: str, time_spent: str, idempotency_key: str) -> str:
         response.raise_for_status()
         return f"Worklog added to {key} successfully."
     except Exception as e:
-        return f"Error: {str(e)}"
+        return format_error(e)
 
 # ----------------------------------------------------------------------------
 # UNSUPPORTED / EXCLUDED OPERATIONS
